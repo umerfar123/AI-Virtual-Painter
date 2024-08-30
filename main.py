@@ -111,7 +111,7 @@ while True:
 
         cv2.putText(img, text, (x_text, y_text), font, font_scale, (0, 0, 0), 1)
     
-    print("Optimizing window")   
+ 
     #Setting the overlay dashboard over webcam
     overlay_image_resized=cv2.resize(header,(640,105))
     img[0:105,0:640] = overlay_image_resized
