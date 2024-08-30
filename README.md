@@ -28,7 +28,7 @@ The project includes mainly two files that tracks the hand and draw on your webc
 
   * Drawing Logic
 
-    The drawing mode is activated when the index finger is raised, while the selection mode is engaged when two fingers are held aloft. The program utilizes a [finger counter]() to determine the number of raised fingers, enabling it to accurately differentiate
+    The drawing mode is activated when the index finger is raised, while the selection mode is engaged when two fingers are held aloft. The program utilizes a [finger counter](https://github.com/umerfar123/um_Finger_Counter) to determine the number of raised fingers, enabling it to accurately differentiate
     between these two modes. In drawing mode, the system tracks the position of the index fingertip using landmarks provided by the hands module. As the fingertip moves, a line is drawn, connecting its current position to its previous location. This dynamic
     line creation allows users to draw various shapes and patterns based on their hand movements.
 
@@ -37,6 +37,18 @@ The project includes mainly two files that tracks the hand and draw on your webc
 1. Clone this repository using
 
    ```
-     
+   git clone https://github.com/umerfar123/AI-Virtual-Painter.git 
    ```
+
+2. Install required libraries using
+
+    ```python
+      pip install -r requirements.txt
+    ```
+3. Run the main file using
+
+    ```python
+      python run main.py
+    ```
+    
    
