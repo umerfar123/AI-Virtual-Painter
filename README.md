@@ -23,8 +23,7 @@ The project includes mainly two files that tracks the hand and draw on your webc
   * Main Module
 
     The code first establishes a video capture stream to obtain real-time video input. It then creates an instance of the HandTracker class, which is responsible for hand detection and landmark extraction. Within a continuous loop, each frame from the
-    video stream is processed by the HandTracker to identify the presence of hands and determine the positions of their key points. Based on the detected finger positions, the drawing logic (which needs to be implemented) will create corresponding drawing 
-    trokes on a virtual canvas. Finally, the processed image, with the drawn strokes overlaid, is displayed to the user.
+    video stream is processed by the HandTracker to identify the presence of hands and determine the positions of their key points. Based on the detected finger positions, the drawing logic will create corresponding drawing strokes on a virtual canvas. Finally, the processed image, with the drawn strokes overlaid, is displayed to the user.
 
   * Drawing Logic
 
@@ -32,7 +31,7 @@ The project includes mainly two files that tracks the hand and draw on your webc
     between these two modes. In drawing mode, the system tracks the position of the index fingertip using landmarks provided by the hands module. As the fingertip moves, a line is drawn, connecting its current position to its previous location. This dynamic
     line creation allows users to draw various shapes and patterns based on their hand movements.
 
-## Usage
+## Installation
 
 1. Clone this repository using
 
@@ -50,5 +49,9 @@ The project includes mainly two files that tracks the hand and draw on your webc
     ```python
       python run main.py
     ```
-    
-   
+___
+
+>[!TIP]
+> While drawing remember that:
+>   + Two finger for selecting colour and eraser.
+>   + One finger for drawing with that selection
