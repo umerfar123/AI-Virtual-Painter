@@ -45,6 +45,7 @@ while True:
     #further processing if hand has tracked
     if len(landList)!=0:
         
+        text='hi'
         xp,yp= 0,0
         #Counting fingers to switch to selection and drawing mode
         fingers=handtracker.fingersUp(landList)  
@@ -56,8 +57,10 @@ while True:
         y_avg = (y1+y2)//2 
          
         #Selection mode 
+        if fingers[1] and fingers[2] and (not fingers[3]) and (not fingers[4]):
+            text='select'
+        
         if fingers[1] and fingers[2]:
-            print("Selection mode")
             if y_avg< 105:
                 if 175<x_avg<295:
                     header=overlayList[1]
@@ -75,7 +78,7 @@ while True:
                     
         #Drawing mode              
         elif fingers[1]:
-            
+            text='Draw'
             #Selection indicator on real feed
             cv2.circle(img,center=(x1,y1),color=c,radius=10,thickness=-1)
             
@@ -91,8 +94,24 @@ while True:
                 
                 cv2.line(imagecanvas,pt1=(xp,yp),pt2=(x1,y1),thickness=15,color=c)
                 xp,yp= x1,y1
-           
-    #Setting the overlay over webcam
+    
+        cv2.rectangle(img,pt1=(0,400),pt2=(100,480),color=(255,255,0),thickness=-1)
+        
+        height, width, _ = img.shape
+        x1,y1= 100,480
+        x2,y2=0,400
+        # Get text font and size
+        font = cv2.FONT_HERSHEY_SIMPLEX
+        font_scale = 0.5
+        # Calculate text dimensions
+        text_width, text_height = cv2.getTextSize(text, font, font_scale, 1)[0]
+        # Calculate text position
+        x_text = x1 + (x2 - x1 - text_width) // 2
+        y_text = y1 + (y2 - y1 + text_height) // 2
+
+        cv2.putText(img, text, (x_text, y_text), font, font_scale, (0, 0, 0), 1)
+         
+    #Setting the overlay dashboard over webcam
     overlay_image_resized=cv2.resize(header,(640,105))
     img[0:105,0:640] = overlay_image_resized
     
