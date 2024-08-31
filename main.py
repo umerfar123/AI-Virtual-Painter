@@ -59,6 +59,7 @@ while True:
         #Selection mode 
         if fingers[1] and fingers[2] and (not fingers[3]) and (not fingers[4]):
             text='select'
+            print("Selection mode")
         
         if fingers[1] and fingers[2]:
             if y_avg< 105:
@@ -96,6 +97,7 @@ while True:
                 xp,yp= x1,y1
     
         cv2.rectangle(img,pt1=(0,400),pt2=(100,480),color=(255,255,0),thickness=-1)
+        
         
         height, width, _ = img.shape
         x1,y1= 100,480
