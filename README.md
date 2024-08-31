@@ -47,7 +47,7 @@ The project includes mainly two files that tracks the hand and draw on your webc
 3. Run the main file using
 
     ```python
-      python run main.py
+      python main.py
     ```
 ___
 
